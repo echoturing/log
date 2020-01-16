@@ -3,5 +3,8 @@ language: go
 
 go_import_path: github.com/echoturing/log
 
+install:
+  - GO111MODULE=on go mod download
+
 script:
-  - make test
+  - GO111MODULE=on make test
