@@ -22,3 +22,15 @@ func TestKeyConflict(t *testing.T) {
 	}
 	Debug("test key conflict done!")
 }
+
+func TestNewDefaultContext(t *testing.T) {
+	ctx := NewDefaultContext()
+
+	InfoWithContext(ctx, "fuck")
+	InfoWithContext(ctx, "you")
+	x(ctx)
+}
+
+func x(ctx context.Context) {
+	InfoWithContext(ctx, "other")
+}
