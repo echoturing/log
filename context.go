@@ -33,7 +33,6 @@ func NewDefaultContext() context.Context {
 func FromContext(ctx context.Context) RequestIDWithUser {
 	requestIDUser, ok := ctx.Value(key).(RequestIDWithUser)
 	if !ok {
-		Info("context is empty!!")
 		requestIDUser.RequestID = ksuid.New().String()
 	}
 	return requestIDUser

@@ -17,6 +17,7 @@ func init() {
 	config := zap.NewProductionConfig()
 	config.Level = zap.NewAtomicLevelAt(zapcore.DebugLevel)
 	config.OutputPaths = []string{"stdout"}
+	config.Sampling = nil
 	config.EncoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
 	_logger, _ := config.Build(zap.AddCallerSkip(1), zap.AddStacktrace(zapcore.DPanicLevel))
 	defaultLogger = _logger.Sugar()
